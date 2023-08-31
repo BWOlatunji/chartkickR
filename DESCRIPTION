@@ -1,0 +1,12 @@
+Package: chartkickR
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Bilikisu", "Olatunji", , "bilqiiswunmi@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0005-9144-6423"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: es
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3

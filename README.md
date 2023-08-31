@@ -1,6 +1,6 @@
 # chartkickRR
 This is an implementation of the  [chartkickR.js](https://chartkickR.com/) library in R using the [htmlwidgets](https://github.com/ramnathv/htmlwidgets) framework.
-
+*One unique thing about chartkickR is that you can create visual with just one line of code*
 
 <h2 id="install">
 
@@ -13,7 +13,7 @@ Installation
 
 ``` r
 install.packages("remotes")
-remotes::install_github("BWOlatunji/chartkickRR")
+remotes::install_github("BWOlatunji/chartkickR")
 ```
 
 <h2 id="usage">

@@ -24,7 +24,7 @@ discrete_line_data = jsonlite::fromJSON('[["United States",44],["Germany",23],["
 
 dl_df <- as.data.frame(discrete_line_data)
 
-chartkick(data = dl_df, x_axis = "V1",
+chartkickR(data = dl_df, x_axis = "V1",
           y_axis = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
 
 
@@ -35,7 +35,7 @@ discrete_line_ns_data = jsonlite::fromJSON('[["26",4],["25",8],["24",0],["23",2]
 
 dlns_df <- as.data.frame(discrete_line_ns_data)
 
-chartkick(data = dlns_df, x_axis = "V1",
+chartkickR(data = dlns_df, x_axis = "V1",
           y_axis = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
 
 # Multiple Series Line ------------------------
@@ -53,7 +53,7 @@ msl_tbl <- msl_df |>
                names_to = "date",
                values_to = "value")
 
-chartkick(data = msl_tbl, x_axis = "date", y_axis = "value",
+chartkickR(data = msl_tbl, x_axis = "date", y_axis = "value",
           group ="name", type = "LineChart",curve = TRUE)
 
 
@@ -65,8 +65,9 @@ pie_data = jsonlite::fromJSON('[["Blueberry", 44], ["Strawberry", 23],["Banana",
 pc_df <- as.data.frame(pie_data)
 
 
-chartkick::chartkick(data = pc_df, x_axis = "V1", y_axis = "V2",
-                     type = "PieChart", colors = list("#4f86f7", "#fc5a8d","yellow","red","#6f2da8"))
+chartkickR::chartkickR(data = pc_df, x_axis = "V1", y_axis = "V2",
+                     type = "PieChart",
+                     colors = list("#4f86f7", "#fc5a8d","yellow","red","#6f2da8"))
 
 # donut chart -----------------------
 
@@ -74,7 +75,7 @@ donut_data <- jsonlite::fromJSON('[["Blueberry",44],["Strawberry",23],["Banana",
 
 donut_df <- as.data.frame(donut_data)
 
-chartkick::chartkick(data = donut_df, x_axis = "V1", y_axis = "V2",
+chartkickR::chartkickR(data = donut_df, x_axis = "V1", y_axis = "V2",
                      type = "PieChart", donut = TRUE,
                      colors = list("#4f86f7", "#fc5a8d","yellow","red","#6f2da8"))
 
@@ -83,14 +84,14 @@ chartkick::chartkick(data = donut_df, x_axis = "V1", y_axis = "V2",
 
 col_data = jsonlite::fromJSON('[["Sun", 32], ["Mon", 46], ["Tue", 28]]')
 cc_df <- as.data.frame(col_data)
-chartkick::chartkick(data = cc_df, x_axis = "V1", y_axis = "V2", type = "ColumnChart",legend = FALSE, colors = list("purple", "red", "green"))
+chartkickR::chartkickR(data = cc_df, x_axis = "V1", y_axis = "V2", type = "ColumnChart",legend = FALSE, colors = list("purple", "red", "green"))
 
 
 # bar chart ---------------
 
 bar_data <- jsonlite::fromJSON('[["0",32],["1",46],["2",28],["3",21],["4",20],["5",13],["6",27]]')
 bd_df <- as.data.frame(bar_data)
-chartkick::chartkick(data = bd_df, x_axis = "V1", y_axis = "V2",type = "BarChart", legend = FALSE, colors = list("green","red"))
+chartkickR::chartkickR(data = bd_df, x_axis = "V1", y_axis = "V2",type = "BarChart", legend = FALSE, colors = list("green","red"))
 
 
 # area chart -----------
@@ -98,7 +99,7 @@ chartkick::chartkick(data = bd_df, x_axis = "V1", y_axis = "V2",type = "BarChart
 area_data <- jsonlite::fromJSON('{"2021-02-10":11,"2021-02-11":6,"2021-02-12":3,"2021-02-13":2,"2021-02-14":5,"2021-02-15":3,"2021-02-16":8,"2021-02-17":6,"2021-02-18":6,"2021-02-19":12,"2021-02-20":5,"2021-02-21":5,"2021-02-22":3,"2021-02-23":1,"2021-02-24":10,"2021-02-25":1,"2021-02-26":3,"2021-02-27":2,"2021-02-28":3,"2021-03-01":2,"2021-03-02":8}')
 ac_df <- data.frame(Date = names(area_data), Value = unlist(area_data))
 
-chartkick::chartkick(data = ac_df, x_axis = "Date", y_axis = "Value",
+chartkickR::chartkickR(data = ac_df, x_axis = "Date", y_axis = "Value",
                      legend = FALSE,type = "AreaChart",curve = TRUE)
 
 
@@ -108,7 +109,7 @@ discrete_area_data <- jsonlite::fromJSON('[["United States",44],["Germany",23],[
 
 dac_df <- data.frame(discrete_area_data)
 
-chartkick::chartkick(data = dac_df, x_axis = "X1", y_axis = "X2",
+chartkickR::chartkickR(data = dac_df, x_axis = "X1", y_axis = "X2",
                      legend = FALSE,type = "AreaChart",curve = TRUE)
 
 
@@ -119,7 +120,7 @@ class(scatter_data) # "matrix" "array"
 
 sc_df <- as.data.frame(scatter_data)
 
-chartkick::chartkick(data = sc_df, x_axis = "V1", y_axis = "V2",
+chartkickR::chartkickR(data = sc_df, x_axis = "V1", y_axis = "V2",
                      legend = FALSE, type = "ScatterChart",colors = list("red"))
 
 
@@ -132,7 +133,7 @@ chartkick::chartkick(data = sc_df, x_axis = "V1", y_axis = "V2",
 #
 # bb_df <- as.data.frame(bubble_data)
 #
-# chartkick::chartkick(data = bb_df, x_axis = "V1", y_axis = "V2",
+# chartkickR::chartkickR(data = bb_df, x_axis = "V1", y_axis = "V2",
 #                      legend = FALSE, type = "BubbleChart",colors = list("red"))
 
 
@@ -144,7 +145,7 @@ chartkick::chartkick(data = sc_df, x_axis = "V1", y_axis = "V2",
 #
 # bbl_df <- as.data.frame(bubble_lg_data)
 #
-# chartkick::chartkick(data = bbl_df, x_axis = "V1", y_axis = "V2",
+# chartkickR::chartkickR(data = bbl_df, x_axis = "V1", y_axis = "V2",
 #                      legend = FALSE, type = "BubbleChart",colors = list("red"))
 
 
@@ -155,7 +156,7 @@ class(geo_data)
 
 gc_df <- as.data.frame(geo_data)
 
-chartkick::chartkick(data = gc_df, type = "GeoChart")
+chartkickR::chartkickR(data = gc_df, type = "GeoChart")
 
 write.csv(gc_df,"inst/examples/sample_data/geo.csv")
 
@@ -167,7 +168,7 @@ class(timeline_data)
 
 tl_df <- as.data.frame(timeline_data)
 
-chartkick::chartkick(data = tl_df, type = "Timeline", colors = list("red", "green"))
+chartkickR::chartkickR(data = tl_df, type = "Timeline", colors = list("red", "green"))
 
 
 

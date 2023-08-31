@@ -40,7 +40,8 @@ chartkickR <- function(data=NULL, x_axis = NULL, y_axis = NULL, group=NULL,
                        colors = list(),discrete = FALSE, download=list(),label = NULL,
                        xtitle = NULL,ytitle = NULL,curve = FALSE,stacked = FALSE,
                        stack=NULL, points = TRUE,legend = TRUE,donut = FALSE,
-                       prefix = NULL, suffix = NULL,thousands = ",", width = NULL, height = NULL, elementId = NULL) {
+                       prefix = NULL, suffix = NULL,thousands = ",",width = NULL,
+                       height = NULL,elementId = NULL) {
 
   assertthat::assert_that(type %in% c(
     "LineChart",
@@ -79,7 +80,7 @@ chartkickR <- function(data=NULL, x_axis = NULL, y_axis = NULL, group=NULL,
 
   # process data
   if (!is.data.frame(data)) {
-    stop("chartkickR: 'data' must be a data.frame",
+    stop("chartkick: 'data' must be a data.frame",
          call. = FALSE)
   }
 
@@ -95,7 +96,7 @@ chartkickR <- function(data=NULL, x_axis = NULL, y_axis = NULL, group=NULL,
   } else if (!is.null(x_axis) & !is.null(y_axis) & is.null(group)) {
 
     # select ONLY x_axis and y_axis columns
-    data <- data |> dplyr::select({{x_axis}},{{y_axis}})
+    data <- data |> dplyr::select({x_axis},{y_axis})
     # Remove the column names
     colnames(data) <- NULL
 
@@ -105,10 +106,10 @@ chartkickR <- function(data=NULL, x_axis = NULL, y_axis = NULL, group=NULL,
     stopifnot(!is.null(x_axis) & !is.null(y_axis))
 
     # select ONLY x_axis,y_axis,groups columns
-    nest_vec <- c(unique(data[[{{x_axis}}]]))
-    data <- data |> dplyr::select({{group}},{{x_axis}},{{y_axis}}) |>
-      dplyr::rename(name= {{group}}) |>
-      tidyr::pivot_wider(names_from = {{x_axis}}, values_from = {{y_axis}}) |>
+    nest_vec <- c(unique(data[[{x_axis}]]))
+    data <- data |> dplyr::select({group},{x_axis},{y_axis}) |>
+      dplyr::rename(name= {group}) |>
+      tidyr::pivot_wider(names_from = {x_axis}, values_from = {y_axis}) |>
       tidyr::nest(data = nest_vec)
 
   } else {
@@ -118,14 +119,13 @@ chartkickR <- function(data=NULL, x_axis = NULL, y_axis = NULL, group=NULL,
   }
 
 
-  # data_items <- dataframeToD3(data)
+  data_items <- dataframeToD3(data)
 
   x = list(
-    data = data,
+    data = data_items,
     type = type,
     options = options
   )
-
 
   # create widget
   htmlwidgets::createWidget(

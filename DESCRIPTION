@@ -4,11 +4,21 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Bilikisu", "Olatunji", , "bilqiiswunmi@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0005-9144-6423"))
-Description: What the package does (one paragraph).
+Description: This is an implementation of the Chartkick.js library in R using the htmlwidgets framework.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Imports:
+    htmlwidgets,
+    assertthat,
+    dplyr,
+    tidyr,
+    jsonlite,
+    magrittr
+Suggests:
+    knitr,
+    testthat (>= 3.0.0)
 URL: https://github.com/BWOlatunji/chartkickR
 BugReports: https://github.com/BWOlatunji/chartkickR/issues

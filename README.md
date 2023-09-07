@@ -34,9 +34,6 @@ library(tidyverse)
 
 p_data <- palmerpenguins::penguins |> select(bill_length_mm,bill_depth_mm)
 
-# apply(p_data, 1, as.list) |> lapply(unname)
-# apply(data, 1, as list) |> lapply(unname)
-
 chartkickR::chartkickR(data = p_data,x=bill_length_mm,y=bill_depth_mm,
                        type = "ScatterChart")
 ```

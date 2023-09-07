@@ -23,7 +23,7 @@ How to use
 
 </h2>
 
-## Example 1 - Line Chart
+## Example 1 - Scatter Chart
 Let try using the package to create a simple line chart with sample data frame as shown below
 
 ``` r

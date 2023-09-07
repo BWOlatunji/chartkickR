@@ -6,7 +6,7 @@
 #' @param group string value of column name for grouping
 #'
 #' @import assertthat jsonlite dplyr
-#'
+
 process_data <- function(data = NULL,x = NULL, y = NULL, group = NULL){
   if (!is.data.frame(data)) {
     stop("chartkick: 'data' must be a data.frame",
@@ -24,7 +24,7 @@ process_data <- function(data = NULL,x = NULL, y = NULL, group = NULL){
   } else if (!is.null(x) & !is.null(y) & is.null(group)) {
 
     # select ONLY x and y columns
-    data <- data |> dplyr::select({x},{y})
+    data <- data |> dplyr::select({{x}},{{y}})
     #data[, c(x,y)]
     # Remove the column names
     colnames(data) <- NULL
@@ -37,10 +37,10 @@ process_data <- function(data = NULL,x = NULL, y = NULL, group = NULL){
     # groups <- as.character(unique(data[[group]]))
 
     # select ONLY x_axis,y_axis,groups columns
-    nest_vec <- c(unique(data[[{x}]]))
-    data <- data |> dplyr::select({group},{x},{y}) |>
-      dplyr::rename(name= {group}) |>
-      tidyr::pivot_wider(names_from = {x}, values_from = {y}) |>
+    nest_vec <- c(unique(data[x]))
+    data <- data |> dplyr::select({{group}},{{x}},{{y}}) |>
+      dplyr::rename(name= {{group}}) |>
+      tidyr::pivot_wider(names_from = {{x}}, values_from = {{y}}) |>
       tidyr::nest(data = nest_vec)
 
     # data <- tibble::tibble(name = groups, data = data_values)
@@ -52,37 +52,47 @@ process_data <- function(data = NULL,x = NULL, y = NULL, group = NULL){
   }
 
   # Convert the data frame to JSON
-  json_data = jsonlite::toJSON(data) #, dataframe = 'rows')
+  # json_data = jsonlite::toJSON(data) #, dataframe = 'rows')
 
-  return(json_data)
+  return(data)
 
 }
 
-
-#' @importFrom magrittr %>%
-#' @export
-magrittr::`%>%`
-
-
 # Convert a data.frame to a list of lists (the data format that D3 uses)
+# dataframeToD3 <- function(df) {
+#   if (missing(df) || is.null(df)) {
+#     return(list())
+#   }
+#   if (!is.data.frame(df)) {
+#     stop("timevis: the input must be a dataframe", call. = FALSE)
+#   }
+#   df <- as.data.frame(df)
+#   row.names(df) <- NULL
+#   lapply(seq_len(nrow(df)), function(row) {
+#     row <- df[row, , drop = FALSE]
+#     row_not_na <- row[, !is.na(row), drop = FALSE]
+#     lapply(row_not_na, function(x) {
+#       if (!lengths(x)) return(NA)
+#       if (is.logical(x)) return(x)
+#       if (lengths(x) > 1 | is.list(x)) return(lapply(unlist(x),as.character))
+#       return(as.character(x))
+#     })
+#   })
+# }
+
 dataframeToD3 <- function(df) {
   if (missing(df) || is.null(df)) {
     return(list())
   }
   if (!is.data.frame(df)) {
-    stop("chartkick: the input must be a dataframe", call. = FALSE)
+    stop("timevis: the input must be a dataframe", call. = FALSE)
   }
-  df <- as.data.frame(df)
+
   row.names(df) <- NULL
-  lapply(seq_len(nrow(df)), function(row) {
-    row <- df[row, , drop = FALSE]
-    row_not_na <- row[, !is.na(row), drop = FALSE]
-    lapply(row_not_na, function(x) {
-      if (!lengths(x)) return(NA)
-      if (is.logical(x)) return(x)
-      if (lengths(x) > 1 | is.list(x)) return(lapply(unlist(x),as.character))
-      return(as.character(x))
-    })
-  })
+  apply(df, 1, function(row) as.list(row[!is.na(row)]))
 }
+
+#' @importFrom magrittr %>%
+#' @export
+magrittr::`%>%`
 

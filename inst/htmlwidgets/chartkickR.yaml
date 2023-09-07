@@ -1,17 +1,21 @@
 dependencies:
  - name: chartjs
    version: 4.2.0
-   src: htmlwidgets/chartjs
+   src: htmlwidgets/chartkick
    script: chart.js
  - name: chartjs-adapter-date-fns
    version: 3.0.0
-   src: htmlwidgets/chartjs-adapter-date-fns
+   src: htmlwidgets/chartkick
    script: chartjs-adapter-date-fns.bundle.js
- - name: charts_loader
+ - name: loader
    version: 52
-   src: htmlwidgets/charts
+   src: htmlwidgets/chartkick/googlecharts
    script: loader.js
+ - name: highcharts
+   version: 52
+   src: htmlwidgets/chartkick
+   script: highcharts.js
  - name: chartkick
    version: 5.0.1
-   src: htmlwidgets/chartkickR
+   src: htmlwidgets/chartkick
    script: chartkick.js

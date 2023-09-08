@@ -198,6 +198,15 @@ chartkickR::chartkickR(data = geo_data, type = "GeoChart")
 
 ```
 
+## Example 14 - Timeline - Google Charts
+
+```r
+timeline_data <- read_csv("inst/examples/sample_data/timeline.csv")
+
+
+chartkickR::chartkickR(data = timeline_data, type = "Timeline", colors = list("red", "green"))
+
+```
 
 ## References:
 - [Examples, Installation and Data formats](https://github.com/ankane/chartkickR.js)

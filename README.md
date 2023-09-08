@@ -1,4 +1,4 @@
-# chartkickRR
+# chartkickR
 This is an implementation of the  [chartkickR.js](https://chartkickR.com/) library in R using the [htmlwidgets](https://github.com/ramnathv/htmlwidgets) framework.
 *
 **One unique thing about chartkickR is that you can create visual with just one line of code**
@@ -44,6 +44,21 @@ palmerpenguins::penguins  |> count(species) |>
                        colors = list("#4f86f7", "#fc5a8d","yellow"))
 
 ```
+
+## Download and save chart
+
+The output can be downloaded and save as an image i.e. png file
+
+```r
+# Pie chart             
+                       
+palmerpenguins::penguins  |> count(species) |>
+  chartkickR::chartkickR(type = "PieChart",
+                       colors = list("#4f86f7", "#fc5a8d","yellow"),
+                       download = list(background= "#fff"))
+```
+
+
 
 ## Examples 
 

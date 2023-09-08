@@ -13,9 +13,6 @@ RoxygenNote: 7.2.3
 Imports:
     htmlwidgets,
     assertthat,
-    dplyr,
-    tidyr,
-    jsonlite,
     magrittr
 Suggests:
     knitr,

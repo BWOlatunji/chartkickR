@@ -8,9 +8,8 @@ chartkickR(
   data = NULL,
   x,
   y,
-  ...,
-  type = NULL,
   group = NULL,
+  type = NULL,
   min = 0,
   max = NULL,
   xmin = NULL,
@@ -38,11 +37,11 @@ chartkickR(
 \arguments{
 \item{data}{data.frame containing data series}
 
-\item{x, y, ...}{List of name value pairs used to map variables on the chart.}
-
-\item{type}{string representing the chart type name i.e. "LineChart"}
+\item{x, y}{List of name value pairs used to map variables on the chart.}
 
 \item{group}{string representing the column name used for grouping}
+
+\item{type}{string representing the chart type name i.e. "LineChart"}
 
 \item{min}{minimum value on the y-axis}
 

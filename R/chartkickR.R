@@ -4,7 +4,7 @@
 #'
 #' @param data data.frame containing data series
 #' @param type string representing the chart type name i.e. "LineChart"
-#' @param x,y,... List of name value pairs used to map variables on the chart.
+#' @param x,y List of name value pairs used to map variables on the chart.
 #' @param group string representing the column name used for grouping
 #' @param min minimum value on the y-axis
 #' @param max maximum value on the y-axis
@@ -34,7 +34,7 @@
 #' @name chartkickR
 #'
 #' @export
-chartkickR <- function(data=NULL,x, y, ..., type = NULL, group=NULL,min = 0,
+chartkickR <- function(data=NULL,x, y, group=NULL, type = NULL, min = 0,
                        max = NULL,xmin = NULL,xmax = NULL, colors = list(),
                        discrete = FALSE, download=list(),label = NULL,
                        xtitle = NULL,ytitle = NULL,curve = FALSE, stacked = FALSE,
@@ -77,6 +77,9 @@ chartkickR <- function(data=NULL,x, y, ..., type = NULL, group=NULL,min = 0,
     thousands = thousands
   )
 
+
+  # process data
+
   # process data
   if (!is.data.frame(data)) {
     stop("chartkickR: 'data' must be a data.frame",
@@ -88,7 +91,14 @@ chartkickR <- function(data=NULL,x, y, ..., type = NULL, group=NULL,min = 0,
     data <- data.frame()
   }
 
-  data_items <- apply(data, 1, as.list) |> lapply(unname)
+  if (is.null(group)){
+    data_items <- apply(data, 1, as.list) %>% lapply(unname)
+  } else {
+    data_items <- process_data(data, x, y, group)
+    #data_items <- apply(data, 1, as.list)
+  }
+
+  # data_items <- apply(data, 1, as.list) |> lapply(unname)
 
   x = list(
     data = data_items,

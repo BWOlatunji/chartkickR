@@ -1,0 +1,41 @@
+task_name,dates,values
+Workout,2021-02-10,3
+Workout,2021-02-17,3
+Workout,2021-02-24,3
+Workout,2021-03-03,1
+Workout,2021-03-10,4
+Workout,2021-03-17,3
+Workout,2021-03-24,2
+Workout,2021-03-31,3
+Go to concert,2021-02-10,0
+Go to concert,2021-02-17,0
+Go to concert,2021-02-24,0
+Go to concert,2021-03-03,0
+Go to concert,2021-03-10,2
+Go to concert,2021-03-17,1
+Go to concert,2021-03-24,0
+Go to concert,2021-03-31,0
+Wash face,2021-02-10,0
+Wash face,2021-02-17,1
+Wash face,2021-02-24,0
+Wash face,2021-03-03,0
+Wash face,2021-03-10,0
+Wash face,2021-03-17,1
+Wash face,2021-03-24,0
+Wash face,2021-03-31,1
+Call parents,2021-02-10,5
+Call parents,2021-02-17,3
+Call parents,2021-02-24,2
+Call parents,2021-03-03,0
+Call parents,2021-03-10,0
+Call parents,2021-03-17,1
+Call parents,2021-03-24,1
+Call parents,2021-03-31,0
+Eat breakfast,2021-02-10,3
+Eat breakfast,2021-02-17,2
+Eat breakfast,2021-02-24,1
+Eat breakfast,2021-03-03,0
+Eat breakfast,2021-03-10,2
+Eat breakfast,2021-03-17,2
+Eat breakfast,2021-03-24,3
+Eat breakfast,2021-03-31,0

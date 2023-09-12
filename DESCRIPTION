@@ -13,7 +13,11 @@ RoxygenNote: 7.2.3
 Imports:
     htmlwidgets,
     assertthat,
-    magrittr
+    magrittr,
+    dplyr,
+    tidyr,
+    rlang,
+    stats
 Suggests:
     knitr,
     testthat (>= 3.0.0)

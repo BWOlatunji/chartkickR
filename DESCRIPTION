@@ -16,6 +16,7 @@ Imports:
     magrittr,
     dplyr,
     tidyr,
+    purrr,
     rlang,
     stats
 Suggests:

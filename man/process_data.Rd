@@ -4,16 +4,16 @@
 \alias{process_data}
 \title{Preprocess data frame}
 \usage{
-process_data(data, x, y, group)
+process_data(df, x_col, y_col, group_col)
 }
 \arguments{
-\item{data}{A data frame}
+\item{df}{A data frame}
 
-\item{x}{string value of column name containing values on the x-axis}
+\item{x_col}{string value of column name containing values on the x-axis}
 
-\item{y}{string value of column name containing values on the y-axis}
+\item{y_col}{string value of column name containing values on the y-axis}
 
-\item{group}{string value of column name for grouping}
+\item{group_col}{string value of column name for grouping}
 }
 \description{
 Preprocess data frame

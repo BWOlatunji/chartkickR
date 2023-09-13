@@ -92,7 +92,7 @@ chartkickR <- function(data=NULL,x, y, group=NULL, type = NULL, min = 0,
   }
 
   if (is.null(group)){
-    data_items <- apply(data, 1, as.list) %>% lapply(unname)
+    data_items <- apply(data, 1, as.list)  |>  lapply(unname)
   } else {
     data_items <- process_data(df = data, x_col=x, y_col=y, group_col=group)
   }

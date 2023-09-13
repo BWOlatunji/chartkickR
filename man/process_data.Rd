@@ -18,3 +18,4 @@ process_data(df, x_col, y_col, group_col)
 \description{
 Preprocess data frame
 }
+\keyword{internal}

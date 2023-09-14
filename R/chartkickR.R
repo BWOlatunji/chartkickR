@@ -34,7 +34,7 @@
 #' @name chartkickR
 #'
 #' @export
-chartkickR <- function(data=NULL,x, y, group=NULL, type = NULL, min = 0,
+chartkickR <- function(data,x, y, group, type, min = 0,
                        max = NULL,xmin = NULL,xmax = NULL, colors = list(),
                        discrete = FALSE, download=list(),label = NULL,
                        xtitle = NULL,ytitle = NULL,curve = FALSE, stacked = FALSE,
@@ -77,9 +77,6 @@ chartkickR <- function(data=NULL,x, y, group=NULL, type = NULL, min = 0,
     thousands = thousands
   )
 
-
-  # process data
-
   # process data
   if (!is.data.frame(data)) {
     stop("chartkickR: 'data' must be a data.frame",
@@ -91,13 +88,19 @@ chartkickR <- function(data=NULL,x, y, group=NULL, type = NULL, min = 0,
     data <- data.frame()
   }
 
-  if (is.null(group)){
-    data_items <- apply(data, 1, as.list)  |>  lapply(unname)
+  if(!is.null(group)){
+    data_items <- process_data(
+      df = data,
+      x_col = x,
+      y_col = y,
+      group_col = group
+    )
   } else {
-    data_items <- process_data(df = data, x_col=x, y_col=y, group_col=group)
+    data_items <- apply(data, 1, as.list)  |>  lapply(unname)
   }
 
-  # data_items <- apply(data, 1, as.list) |> lapply(unname)
+
+
 
   x = list(
     data = data_items,

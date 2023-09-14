@@ -5,11 +5,11 @@
 \title{Chartkick.js chart in R powered by htmlwidgets}
 \usage{
 chartkickR(
-  data = NULL,
+  data,
   x,
   y,
-  group = NULL,
-  type = NULL,
+  group,
+  type,
   min = 0,
   max = NULL,
   xmin = NULL,

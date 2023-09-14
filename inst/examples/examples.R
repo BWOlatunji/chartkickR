@@ -15,8 +15,8 @@ linechart_df <- data.frame(dates = c("May 13, 2023", "May 14, 2023", "May 15, 20
                            values = c(2, 5, 3, 8, 6, 6, 12, 5, 5, 3, 1, 6, 1, 3, 2, 3, 2, 8, 5))
 
 
-chartkickR(data = linechart_df, x_axis = "dates",
-          y_axis = "values", curve = TRUE, legend = FALSE, type = "LineChart")
+chartkickR(data = linechart_df, x = "dates", group = NULL,
+          y = "values", curve = TRUE, legend = FALSE, type = "LineChart")
 
 # Discrete Line Chart ---------------------------
 

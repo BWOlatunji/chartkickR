@@ -15,7 +15,6 @@ Imports:
     assertthat,
     dplyr,
     tidyr,
-    purrr,
     rlang,
     stats
 Suggests:

@@ -4,7 +4,7 @@
 \alias{process_data}
 \title{Preprocess data frame}
 \usage{
-process_data(df, group_col, x_col, y_col)
+process_data(df, group_col = NULL, x_col = NULL, y_col = NULL)
 }
 \arguments{
 \item{df}{A data frame}

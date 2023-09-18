@@ -24,8 +24,8 @@ discrete_line_data = jsonlite::fromJSON('[["United States",44],["Germany",23],["
 
 dl_df <- as.data.frame(discrete_line_data)
 
-chartkickR(data = dl_df, x_axis = "V1",
-          y_axis = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
+chartkickR(data = dl_df, x = "V1", group = NULL,
+          y = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
 
 
 

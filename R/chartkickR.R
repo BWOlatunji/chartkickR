@@ -34,7 +34,7 @@
 #' @name chartkickR
 #'
 #' @export
-chartkickR <- function(data,x, y, group, type, min = 0,
+chartkickR <- function(data,x=NULL, y=NULL, group=NULL, type, min = 0,
                        max = NULL,xmin = NULL,xmax = NULL, colors = list(),
                        discrete = FALSE, download=list(),label = NULL,
                        xtitle = NULL,ytitle = NULL,curve = FALSE, stacked = FALSE,
@@ -83,24 +83,8 @@ chartkickR <- function(data,x, y, group, type, min = 0,
          call. = FALSE)
   }
 
-  # convert missing data to empty data frame
-  if (missing(data)) {
-    data <- data.frame()
-  }
-
-  if(!is.null(group)){
-    data_items <- process_data(
-      df = data,
-      x_col = x,
-      y_col = y,
-      group_col = group
-    )
-  } else {
-    data_items <- apply(data, 1, as.list)  |>  lapply(unname)
-  }
-
-
-
+  data_items <- process_data(df = data,group_col = group,
+                             x_col = x,y_col = y)
 
   x = list(
     data = data_items,

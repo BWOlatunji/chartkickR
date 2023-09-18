@@ -24,8 +24,8 @@ discrete_line_data = jsonlite::fromJSON('[["United States",44],["Germany",23],["
 
 dl_df <- as.data.frame(discrete_line_data)
 
-chartkickR(data = dl_df, x = "V1", group = NULL,
-          y = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
+chartkickR(data = dl_df, x = V1, group = NULL,
+          y = V2, curve = TRUE, legend = FALSE, type = "LineChart")
 
 
 
@@ -35,8 +35,8 @@ discrete_line_ns_data = jsonlite::fromJSON('[["26",4],["25",8],["24",0],["23",2]
 
 dlns_df <- as.data.frame(discrete_line_ns_data)
 
-chartkickR(data = dlns_df, x_axis = "V1",
-          y_axis = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
+chartkickR(data = dlns_df, x = "V1",
+          y = "V2", curve = TRUE, legend = FALSE, type = "LineChart")
 
 # Multiple Series Line ------------------------
 
@@ -53,7 +53,7 @@ msl_tbl <- msl_df |>
                names_to = "date",
                values_to = "value")
 
-chartkickR(data = msl_tbl, x_axis = "date", y_axis = "value",
+chartkickR(data = msl_tbl, x = "date", y = "value",
           group ="name", type = "LineChart",curve = TRUE)
 
 
@@ -65,7 +65,7 @@ pie_data = jsonlite::fromJSON('[["Blueberry", 44], ["Strawberry", 23],["Banana",
 pc_df <- as.data.frame(pie_data)
 
 
-chartkickR::chartkickR(data = pc_df, x_axis = "V1", y_axis = "V2",
+chartkickR::chartkickR(data = pc_df, x = "V1", y = "V2",
                      type = "PieChart",
                      colors = list("#4f86f7", "#fc5a8d","yellow","red","#6f2da8"))
 
@@ -75,7 +75,7 @@ donut_data <- jsonlite::fromJSON('[["Blueberry",44],["Strawberry",23],["Banana",
 
 donut_df <- as.data.frame(donut_data)
 
-chartkickR::chartkickR(data = donut_df, x_axis = "V1", y_axis = "V2",
+chartkickR::chartkickR(data = donut_df, x = "V1", y = "V2",
                      type = "PieChart", donut = TRUE,
                      colors = list("#4f86f7", "#fc5a8d","yellow","red","#6f2da8"))
 
@@ -84,23 +84,28 @@ chartkickR::chartkickR(data = donut_df, x_axis = "V1", y_axis = "V2",
 
 col_data = jsonlite::fromJSON('[["Sun", 32], ["Mon", 46], ["Tue", 28]]')
 cc_df <- as.data.frame(col_data)
-chartkickR::chartkickR(data = cc_df, x_axis = "V1", y_axis = "V2", type = "ColumnChart",legend = FALSE, colors = list("purple", "red", "green"))
+chartkickR::chartkickR(data = cc_df, x = "V1", y = "V2", type = "ColumnChart",legend = FALSE, colors = list("purple", "red", "green"))
 
 
 # bar chart ---------------
 
-bar_data <- jsonlite::fromJSON('[["0",32],["1",46],["2",28],["3",21],["4",20],["5",13],["6",27]]')
+bar_data <- jsonlite::fromJSON('[["0",32],["1",46],["2",28],["3",21]]')
 bd_df <- as.data.frame(bar_data)
-chartkickR::chartkickR(data = bd_df, x_axis = "V1", y_axis = "V2",type = "BarChart", legend = FALSE, colors = list("green","red"))
+chartkickR::chartkickR(data = bd_df, x = "V1", y = "V2",
+                       type = "BarChart",
+                       legend = FALSE,
+                       colors = list("green","red", "yellow", "purple"))
 
 
 # area chart -----------
 
 area_data <- jsonlite::fromJSON('{"2021-02-10":11,"2021-02-11":6,"2021-02-12":3,"2021-02-13":2,"2021-02-14":5,"2021-02-15":3,"2021-02-16":8,"2021-02-17":6,"2021-02-18":6,"2021-02-19":12,"2021-02-20":5,"2021-02-21":5,"2021-02-22":3,"2021-02-23":1,"2021-02-24":10,"2021-02-25":1,"2021-02-26":3,"2021-02-27":2,"2021-02-28":3,"2021-03-01":2,"2021-03-02":8}')
-ac_df <- data.frame(Date = names(area_data), Value = unlist(area_data))
+#ac_df <- data.frame(area_data, Value = unlist(area_data))
 
-chartkickR::chartkickR(data = ac_df, x_axis = "Date", y_axis = "Value",
-                     legend = FALSE,type = "AreaChart",curve = TRUE)
+chartkickR::chartkickR(data = ac_df, x = "Date",
+                       y = "Value",
+                     legend = FALSE,type = "AreaChart",
+                     curve = TRUE)
 
 
 # Discrete Area Chart
@@ -109,7 +114,7 @@ discrete_area_data <- jsonlite::fromJSON('[["United States",44],["Germany",23],[
 
 dac_df <- data.frame(discrete_area_data)
 
-chartkickR::chartkickR(data = dac_df, x_axis = "X1", y_axis = "X2",
+chartkickR::chartkickR(data = dac_df, x = "X1", y = "X2",
                      legend = FALSE,type = "AreaChart",curve = TRUE)
 
 
@@ -120,7 +125,7 @@ class(scatter_data) # "matrix" "array"
 
 sc_df <- as.data.frame(scatter_data)
 
-chartkickR::chartkickR(data = sc_df, x_axis = "V1", y_axis = "V2",
+chartkickR::chartkickR(data = sc_df, x = "V1", y = "V2",
                      legend = FALSE, type = "ScatterChart",colors = list("red"))
 
 

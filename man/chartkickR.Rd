@@ -6,29 +6,11 @@
 \usage{
 chartkickR(
   data,
-  x = NULL,
-  y = NULL,
-  group = NULL,
+  x,
+  y,
+  group,
   type,
-  min = 0,
-  max = NULL,
-  xmin = NULL,
-  xmax = NULL,
-  colors = list(),
-  discrete = FALSE,
-  download = list(),
-  label = NULL,
-  xtitle = NULL,
-  ytitle = NULL,
-  curve = FALSE,
-  stacked = FALSE,
-  stack = NULL,
-  points = TRUE,
-  legend = TRUE,
-  donut = FALSE,
-  prefix = NULL,
-  suffix = NULL,
-  thousands = ",",
+  ...,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -43,43 +25,7 @@ chartkickR(
 
 \item{type}{string representing the chart type name i.e. "LineChart"}
 
-\item{min}{minimum value on the y-axis}
-
-\item{max}{maximum value on the y-axis}
-
-\item{xmin}{minimum value on the y-axis}
-
-\item{xmax}{maximum value on the y-axis}
-
-\item{colors}{list of colors}
-
-\item{discrete}{discrete axis}
-
-\item{download}{list containing the download file name, background color, etc}
-
-\item{label}{for single series}
-
-\item{xtitle}{x-axis title}
-
-\item{ytitle}{y-axis title}
-
-\item{curve}{straight lines between points instead of curve}
-
-\item{stacked}{Boolean value stacked columns or bars}
-
-\item{stack}{string representing the stack value}
-
-\item{points}{hide or show points}
-
-\item{legend}{hide or show legend, (show by default) and legend position - bottom, top, left, right}
-
-\item{donut}{display donut chart - true or false}
-
-\item{prefix}{useful for currency - chartjs, highcharts}
-
-\item{suffix}{useful for percentages}
-
-\item{thousands}{set a thousands separator}
+\item{...}{configurations arguments for the chart}
 
 \item{width}{chart's width}
 

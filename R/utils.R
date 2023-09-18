@@ -10,24 +10,17 @@
 #' @importFrom stats setNames
 #' @export
 #' @keywords internal
-process_data <- function(df=NULL, group_col=NULL, x_col=NULL, y_col=NULL) {
-  if(!is.null(group_col) & !is.null(x_col) & !is.null(y_col)){
-    df_tbl <- dplyr::select(df,
-                            x = {{ x_col }} ,
-                            y = {{ y_col }},
-                            group = {{ group_col }})
+process_data <- function(df) {
+  if(!is.null(df$group) & !is.null(df$x) & !is.null(df$y)){
 
-    data_items <- lapply(split(df_tbl, df_tbl$group), function(sub_df) {
+    data_items <- lapply(split(df, df$group), function(sub_df) {
       name <- unique(sub_df$group)
       data <- setNames(as.list(sub_df$y), sub_df$x)
       list(name = name, data = data)
     }) |> unname()
 
-  } else if(!is.null(df)){
-    data_items <- apply(df, 1, as.list)  |>  lapply(unname)
   } else {
-    stop("chartkickR: 'data' must not be missing",
-         call. = FALSE)
+    data_items <- apply(df, 1, as.list)  |>  lapply(unname)
   }
 
   return(data_items)

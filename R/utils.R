@@ -10,7 +10,7 @@
 #' @importFrom stats setNames
 #' @export
 #' @keywords internal
-process_data <- function(df, group_col=NULL, x_col=NULL, y_col=NULL) {
+process_data <- function(df=NULL, group_col=NULL, x_col=NULL, y_col=NULL) {
   if(!is.null(group_col) & !is.null(x_col) & !is.null(y_col)){
     df_tbl <- dplyr::select(df,
                             x = {{ x_col }} ,

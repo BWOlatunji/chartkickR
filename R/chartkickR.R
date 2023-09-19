@@ -16,7 +16,7 @@
 #' @name chartkickR
 #'
 #' @export
-chartkickR <- function(data,x, y, group, type, ..., width = NULL,
+chartkickR <- function(data, x=NULL, y=NULL, group=NULL, type, ..., width = NULL,
                        height = NULL,elementId = NULL) {
 
   assertthat::assert_that(type %in% c(

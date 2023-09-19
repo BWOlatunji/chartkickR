@@ -14,12 +14,7 @@ json_data <- jsonlite::fromJSON('[{"name": "Series A",
                                 simplifyDataFrame = TRUE) |>
   unnest(data)
 
-series_data <- data.frame("name"=c("Series A","Series A","Series A","Series A","Series A","Series A","Series A",
-                                 "Series B", "Series B", "Series B", "Series B", "Series B", "Series B","Series B"),
-                      "id"=c("0","1","2","3","4","5","6","0","1","2","3","4","5","6"),
-                      "values"=c(32,46,28,21,20,13,27,32,46,28,21,20,13,27)) |>
-  mutate(id = as.character(id))
+bar_series_data <- read_csv("inst/examples/sample_data/multi_series_bar.csv")
+chartkickR(data=bar_series_data, x=id, y=values,
+           group=name, type = "BarChart",curve = TRUE)
 
-
-chartkickR(data=series_data, x=id, y=values,
-           group=name, type = "LineChart",curve = TRUE)

@@ -6,9 +6,9 @@
 \usage{
 chartkickR(
   data,
-  x = NULL,
-  y = NULL,
-  group = NULL,
+  x,
+  y,
+  group,
   type,
   ...,
   width = NULL,

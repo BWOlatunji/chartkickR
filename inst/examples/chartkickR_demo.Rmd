@@ -52,7 +52,7 @@ chartkickR(data = discrete_line_ns_tbl, x = V1,
 
 pie_data <- read_rds("sample_data/pie_data.rds")
 
-chartkickR::chartkickR(data = pie_data,
+chartkickR::chartkickR(data = pie_data,x = V1, y = V2,
                        type = "PieChart",
                        colors = list("#4f86f7","#fc5a8d","yellow","red","#6f2da8"))
 
@@ -143,8 +143,7 @@ chartkickR::chartkickR(data = bubble_data, x = V1, y = V2,group = V3,
 
 ```{r}
 
-bubble_lg_data <- read_csv("inst/examples/sample_data/bubble_large.csv")
-write_csv(bubble_lg_data,"inst/examples/sample_data/bubble_large.csv")
+bubble_lg_data <- read_rds("sample_data/bubble_large_data.rds")
 
 chartkickR::chartkickR(data = bubble_lg_data,
                        legend = FALSE, type = "BubbleChart",colors = list("green"))
@@ -155,7 +154,7 @@ chartkickR::chartkickR(data = bubble_lg_data,
 
 ```{r}
 
-geo_data <- read_csv("inst/examples/sample_data/geo.csv")
+geo_data <- read_rds("sample_data/geo_data.rds")
 
 chartkickR::chartkickR(data = geo_data, type = "GeoChart")
 
@@ -165,7 +164,7 @@ chartkickR::chartkickR(data = geo_data, type = "GeoChart")
 ## Example 14 - Timeline - Google Charts
 
 ```{r}
-timeline_data <- read_csv("inst/examples/sample_data/timeline.csv")
+timeline_data <- read_rds("sample_data/timeline_data.rds")
 
 
 chartkickR::chartkickR(data = timeline_data, type = "Timeline", colors = list("red", "green"))
@@ -175,8 +174,3 @@ chartkickR::chartkickR(data = timeline_data, type = "Timeline", colors = list("r
 ## References:
 - [Examples, Installation and Data formats](https://github.com/ankane/chartkickR.js)
 
-
-
-
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

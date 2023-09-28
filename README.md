@@ -42,6 +42,15 @@ chartkickR::chartkickR(data = p_data,x=bill_length_mm,y=bill_depth_mm,
 palmerpenguins::penguins  |> count(species) |>
   chartkickR::chartkickR(type = "PieChart",
                        colors = list("#4f86f7", "#fc5a8d","yellow"))
+                      
+# Multiple Series Bar
+bar_series_data <- penguins |> 
+  group_by(year) |> 
+  count(species)
+  
+chartkickR(data=bar_series_data, x=year, y=n,
+           group=species, type = "BarChart",curve = TRUE)
+
 
 ```
 

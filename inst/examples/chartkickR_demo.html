@@ -10971,27 +10971,13 @@ simple charts as shown below</p>
 </div>
 <div id="example-1---scatter-chart" class="section level2">
 <h2>Example 1 - Scatter Chart</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.3.1</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.3.1</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.3     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(chartkickR)
-line_tbl &lt;- read_rds(&quot;sample_data/line_data.rds&quot;)
+<pre class="r"><code>line_tbl &lt;- read_rds(&quot;sample_data/line_data.rds&quot;)
 
 chartkickR(data = line_tbl, x = dates,
            y = values, type = &quot;LineChart&quot;,curve = TRUE)</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c7c74dd8a930cbca9977" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c7c74dd8a930cbca9977">{"x":{"data":[["May 13, 2023"," 2"],["May 14, 2023"," 5"],["May 15, 2023"," 3"],["May 16, 2023"," 8"],["May 17, 2023"," 6"],["May 18, 2023"," 6"],["May 19, 2023","12"],["May 20, 2023"," 5"],["May 21, 2023"," 5"],["May 22, 2023"," 3"],["May 23, 2023"," 1"],["May 24, 2023"," 6"],["May 25, 2023"," 1"],["May 26, 2023"," 3"],["May 27, 2023"," 2"],["May 28, 2023"," 3"],["May 29, 2023"," 2"],["May 30, 2023"," 8"],["May 31, 2023"," 5"]],"type":"LineChart","options":{"curve":true}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9a62eddd9e331e6c737f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9a62eddd9e331e6c737f">{"x":{"data":[["May 13, 2023"," 2"],["May 14, 2023"," 5"],["May 15, 2023"," 3"],["May 16, 2023"," 8"],["May 17, 2023"," 6"],["May 18, 2023"," 6"],["May 19, 2023","12"],["May 20, 2023"," 5"],["May 21, 2023"," 5"],["May 22, 2023"," 3"],["May 23, 2023"," 1"],["May 24, 2023"," 6"],["May 25, 2023"," 1"],["May 26, 2023"," 3"],["May 27, 2023"," 2"],["May 28, 2023"," 3"],["May 29, 2023"," 2"],["May 30, 2023"," 8"],["May 31, 2023"," 5"]],"type":"LineChart","options":{"curve":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-2---discrete-line-chart" class="section level2">
 <h2>## Example 2 - Discrete Line Chart</h2>
@@ -11000,8 +10986,8 @@ chartkickR(data = line_tbl, x = dates,
 chartkickR(data = discrete_line_tbl, x = V1,
            y = V2, type = &quot;LineChart&quot;)</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e93703e3dc71ab636284" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e93703e3dc71ab636284">{"x":{"data":[["United States","44"],["Germany","23"],["Brazil","22"],["Canada","21"],["France","13"]],"type":"LineChart","options":[]},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-499083a9aaa507d58a66" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-499083a9aaa507d58a66">{"x":{"data":[["United States","44"],["Germany","23"],["Brazil","22"],["Canada","21"],["France","13"]],"type":"LineChart","options":[]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-3---discrete-line-chart-numeric-string" class="section level2">
 <h2>Example 3 - Discrete Line Chart Numeric String</h2>
@@ -11010,19 +10996,19 @@ chartkickR(data = discrete_line_tbl, x = V1,
 chartkickR(data = discrete_line_ns_tbl, x = V1,
            y = V2, curve = TRUE, legend = FALSE, type = &quot;LineChart&quot;)</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6a68ef2c2b2190cd59db" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6a68ef2c2b2190cd59db">{"x":{"data":[[26,4],[25,8],[24,0],[23,2],[22,2],[21,1],[20,3],[19,5],[18,8],[17,1],[16,3],[15,1],[14,2],[13,5],[12,7],[11,9],[10,1],[9,6],[8,4],[7,0],[6,3],[5,9],[4,8],[3,0],[2,5],[1,2]],"type":"LineChart","options":{"curve":true,"legend":false}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3a87ce47055880032233" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-3a87ce47055880032233">{"x":{"data":[[26,4],[25,8],[24,0],[23,2],[22,2],[21,1],[20,3],[19,5],[18,8],[17,1],[16,3],[15,1],[14,2],[13,5],[12,7],[11,9],[10,1],[9,6],[8,4],[7,0],[6,3],[5,9],[4,8],[3,0],[2,5],[1,2]],"type":"LineChart","options":{"curve":true,"legend":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-4---pie-chart" class="section level2">
 <h2>Example 4 - Pie Chart</h2>
 <pre class="r"><code>pie_data &lt;- read_rds(&quot;sample_data/pie_data.rds&quot;)
 
-chartkickR::chartkickR(data = pie_data,x = V1, y = V2,
+chartkickR::chartkickR(data = pie_data, x = V1, y = V2,
                        type = &quot;PieChart&quot;,
                        colors = list(&quot;#4f86f7&quot;,&quot;#fc5a8d&quot;,&quot;yellow&quot;,&quot;red&quot;,&quot;#6f2da8&quot;))</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cd88da49631c39cbf7e8" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-cd88da49631c39cbf7e8">{"x":{"data":[["Blueberry","44"],["Strawberry","23"],["Banana","22"],["Apple","21"],["Grape","13"]],"type":"PieChart","options":{"colors":["#4f86f7","#fc5a8d","yellow","red","#6f2da8"]}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b769c5fac14604207bc4" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-b769c5fac14604207bc4">{"x":{"data":[["Blueberry","44"],["Strawberry","23"],["Banana","22"],["Apple","21"],["Grape","13"]],"type":"PieChart","options":{"colors":["#4f86f7","#fc5a8d","yellow","red","#6f2da8"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-5---donut-chart" class="section level2">
 <h2>Example 5 - Donut Chart</h2>
@@ -11033,8 +11019,8 @@ chartkickR::chartkickR(data = donut_data, x = V1, y = V2,
                        type = &quot;PieChart&quot;, donut = TRUE,
                        colors = list(&quot;#4f86f7&quot;, &quot;#fc5a8d&quot;,&quot;yellow&quot;,&quot;red&quot;,&quot;#6f2da8&quot;))</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7d996dd86106a1b2166e" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7d996dd86106a1b2166e">{"x":{"data":[["Blueberry","44"],["Strawberry","23"],["Banana","22"],["Apple","21"],["Grape","13"]],"type":"PieChart","options":{"donut":true,"colors":["#4f86f7","#fc5a8d","yellow","red","#6f2da8"]}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8bf3f58ef5c6db491266" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-8bf3f58ef5c6db491266">{"x":{"data":[["Blueberry","44"],["Strawberry","23"],["Banana","22"],["Apple","21"],["Grape","13"]],"type":"PieChart","options":{"donut":true,"colors":["#4f86f7","#fc5a8d","yellow","red","#6f2da8"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-6---column-chart" class="section level2">
 <h2>Example 6 - Column Chart</h2>
@@ -11045,17 +11031,19 @@ chartkickR::chartkickR(data = column_data, x = V1, y = V2,
                        type = &quot;ColumnChart&quot;,legend = FALSE,
                        colors = list(&quot;purple&quot;, &quot;red&quot;, &quot;green&quot;))</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f9fb8b7c5156e4e873df" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f9fb8b7c5156e4e873df">{"x":{"data":[["Sun","32"],["Mon","46"],["Tue","28"]],"type":"ColumnChart","options":{"legend":false,"colors":["purple","red","green"]}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6c6db8a963b0dd5888cb" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-6c6db8a963b0dd5888cb">{"x":{"data":[["Sun","32"],["Mon","46"],["Tue","28"]],"type":"ColumnChart","options":{"legend":false,"colors":["purple","red","green"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-8---bar-chart" class="section level2">
 <h2>Example 8 - Bar Chart</h2>
-<pre class="r"><code>bar_data &lt;- read_rds(&quot;sample_data/bar_data.rds&quot;)
+<pre class="r"><code>library(RColorBrewer)
+bar_data &lt;- read_rds(&quot;sample_data/bar_data.rds&quot;)
 
-chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = &quot;BarChart&quot;, legend = FALSE, colors = list(&quot;green&quot;,&quot;red&quot;))</code></pre>
+chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = &quot;BarChart&quot;, legend = FALSE, colors = list(brewer.pal(n = 7, name = &quot;RdBu&quot;)))</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-106b26c9de5f73061694" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-106b26c9de5f73061694">{"x":{"data":[[0,32],[1,46],[2,28],[3,21],[4,20],[5,13],[6,27]],"type":"BarChart","options":{"legend":false,"colors":["green","red"]}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-18e0a8cc23f5941adbaa" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-18e0a8cc23f5941adbaa">{"x":{"data":[[0,32],[1,46],[2,28],[3,21],[4,20],[5,13],[6,27]],"type":"BarChart","options":{"legend":false,"colors":[["#B2182B","#EF8A62","#FDDBC7","#F7F7F7","#D1E5F0","#67A9CF","#2166AC"]]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>#&quot;green&quot;,&quot;red&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;orange&quot;,&quot;purple&quot;,&quot;skyblue&quot;</code></pre>
 </div>
 <div id="example-8---area-chart" class="section level2">
 <h2>Example 8 - Area Chart</h2>
@@ -11064,8 +11052,8 @@ chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = &quot;BarChart&quo
 chartkickR::chartkickR(data = area_data, x = Date, y = Value,
                        legend = FALSE,type = &quot;AreaChart&quot;,curve = TRUE)</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d3d7a4dc6c68822ed8fd" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-d3d7a4dc6c68822ed8fd">{"x":{"data":[["2021-02-10","11"],["2021-02-11"," 6"],["2021-02-12"," 3"],["2021-02-13"," 2"],["2021-02-14"," 5"],["2021-02-15"," 3"],["2021-02-16"," 8"],["2021-02-17"," 6"],["2021-02-18"," 6"],["2021-02-19","12"],["2021-02-20"," 5"],["2021-02-21"," 5"],["2021-02-22"," 3"],["2021-02-23"," 1"],["2021-02-24","10"],["2021-02-25"," 1"],["2021-02-26"," 3"],["2021-02-27"," 2"],["2021-02-28"," 3"],["2021-03-01"," 2"],["2021-03-02"," 8"]],"type":"AreaChart","options":{"legend":false,"curve":true}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c970fbeed4d7e3a7a656" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c970fbeed4d7e3a7a656">{"x":{"data":[["2021-02-10","11"],["2021-02-11"," 6"],["2021-02-12"," 3"],["2021-02-13"," 2"],["2021-02-14"," 5"],["2021-02-15"," 3"],["2021-02-16"," 8"],["2021-02-17"," 6"],["2021-02-18"," 6"],["2021-02-19","12"],["2021-02-20"," 5"],["2021-02-21"," 5"],["2021-02-22"," 3"],["2021-02-23"," 1"],["2021-02-24","10"],["2021-02-25"," 1"],["2021-02-26"," 3"],["2021-02-27"," 2"],["2021-02-28"," 3"],["2021-03-01"," 2"],["2021-03-02"," 8"]],"type":"AreaChart","options":{"legend":false,"curve":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-9---discrete-area-chart" class="section level2">
 <h2>Example 9 - Discrete Area Chart</h2>
@@ -11074,8 +11062,8 @@ chartkickR::chartkickR(data = area_data, x = Date, y = Value,
 chartkickR::chartkickR(data = discrete_area_data, x = country, y = values,
                        legend = FALSE,type = &quot;AreaChart&quot;,curve = TRUE)</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-061223915cc9efc5f91f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-061223915cc9efc5f91f">{"x":{"data":[["United States","44"],["Germany","23"],["Brazil","22"],["Canada","21"],["France","13"]],"type":"AreaChart","options":{"legend":false,"curve":true}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9a7517f2bcc6fbb67936" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9a7517f2bcc6fbb67936">{"x":{"data":[["United States","44"],["Germany","23"],["Brazil","22"],["Canada","21"],["France","13"]],"type":"AreaChart","options":{"legend":false,"curve":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="example-10---scatter-chart" class="section level2">
 <h2>Example 10 - Scatter Chart</h2>
@@ -11084,53 +11072,25 @@ chartkickR::chartkickR(data = discrete_area_data, x = country, y = values,
 chartkickR::chartkickR(data = scatter_data, x = V1, y = V2,
                        legend = FALSE, type = &quot;ScatterChart&quot;,colors = list(&quot;red&quot;))</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-563cb6ed59857a7c886e" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-563cb6ed59857a7c886e">{"x":{"data":[[174,80],[176.5,82.3],[180.3,73.59999999999999],[167.6,74.09999999999999],[188,85.90000000000001]],"type":"ScatterChart","options":{"legend":false,"colors":["red"]}},"evals":[],"jsHooks":[]}</script>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7cca792911f1600464a7" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7cca792911f1600464a7">{"x":{"data":[[174,80],[176.5,82.3],[180.3,73.59999999999999],[167.6,74.09999999999999],[188,85.90000000000001]],"type":"ScatterChart","options":{"legend":false,"colors":["red"]}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="example-11---bubble-chart" class="section level2">
-<h2>Example 11 - Bubble chart ——————</h2>
-<pre class="r"><code>bubble_data &lt;- read_rds(&quot;sample_data/bubble_data.rds&quot;)
-
-
-chartkickR::chartkickR(data = bubble_data, x = V1, y = V2,group = V3,
-                       legend = FALSE, type = &quot;BubbleChart&quot;,colors = list(&quot;red&quot;))</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7a2e8ed2a607582637df" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7a2e8ed2a607582637df">{"x":{"data":[{"name":1,"data":{"174":80}},{"name":2,"data":{"176.5":82.3,"188":85.90000000000001}},{"name":3,"data":{"180.3":73.59999999999999}},{"name":6,"data":{"167.6":74.09999999999999}}],"type":"BubbleChart","options":{"legend":false,"colors":["red"]}},"evals":[],"jsHooks":[]}</script>
+<div id="example-11---multiple-series-bar" class="section level2">
+<h2>Example 11 - Multiple Series Bar</h2>
+<pre class="r"><code>bar_series_data &lt;- read_rds(&quot;sample_data/multiseries_bar_data.rds&quot;)
+chartkickR(data=bar_series_data, x=id, y=values,
+           group=name, type = &quot;BarChart&quot;,curve = TRUE)</code></pre>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8ed2566253795aa1bb41" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-8ed2566253795aa1bb41">{"x":{"data":[{"name":"Series A","data":{"0":32,"1":46,"2":28,"3":21,"4":20,"5":13,"6":27}},{"name":"Series B","data":{"0":32,"1":46,"2":28,"3":21,"4":20,"5":13,"6":27}}],"type":"BarChart","options":{"curve":true}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="example-12---large-bubble-chart" class="section level2">
-<h2>Example 12 - Large bubble chart</h2>
-<pre class="r"><code>bubble_lg_data &lt;- read_rds(&quot;sample_data/bubble_large_data.rds&quot;)
-
-chartkickR::chartkickR(data = bubble_lg_data,
-                       legend = FALSE, type = &quot;BubbleChart&quot;,colors = list(&quot;green&quot;))</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `x`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `y`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0ceac182eebbbc9d69b3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-0ceac182eebbbc9d69b3">{"x":{"data":[[],[],[],[],[]],"type":"BubbleChart","options":{"legend":false,"colors":["green"]}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="example-13---geo-chart" class="section level2">
-<h2>Example 13 - Geo Chart</h2>
-<pre class="r"><code>geo_data &lt;- read_rds(&quot;sample_data/geo_data.rds&quot;)
-
-chartkickR::chartkickR(data = geo_data, type = &quot;GeoChart&quot;)</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `x`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `y`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-59a267132ba897b9254a" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-59a267132ba897b9254a">{"x":{"data":[[],[],[],[],[]],"type":"GeoChart","options":[]},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="example-14---timeline---google-charts" class="section level2">
-<h2>Example 14 - Timeline - Google Charts</h2>
-<pre class="r"><code>timeline_data &lt;- read_rds(&quot;sample_data/timeline_data.rds&quot;)
-
-
-chartkickR::chartkickR(data = timeline_data, type = &quot;Timeline&quot;, colors = list(&quot;red&quot;, &quot;green&quot;))</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `group`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `x`.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `y`.</code></pre>
-<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-db5d8589dbd7912eed22" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-db5d8589dbd7912eed22">{"x":{"data":[[],[]],"type":"Timeline","options":{"colors":["red","green"]}},"evals":[],"jsHooks":[]}</script>
+<div id="example-12---multiple-series-line" class="section level2">
+<h2>Example 12 - Multiple Series Line</h2>
+<pre class="r"><code>line_series_data &lt;- read_rds(&quot;sample_data/multiline_series_data.rds&quot;)
+chartkickR(data=line_series_data, x=dates, y=values,
+           group=task_name, type = &quot;LineChart&quot;,curve = TRUE,
+           colors = list(&quot;#1B9E77&quot;, &quot;#D95F02&quot;, &quot;#7570B3&quot;, &quot;#E7298A&quot;, &quot;#66A61E&quot;))</code></pre>
+<div class="chartkickR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5763b8427ec3818b4daa" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-5763b8427ec3818b4daa">{"x":{"data":[{"name":"Call parents","data":{"2021-02-10":5,"2021-02-17":3,"2021-02-24":2,"2021-03-03":0,"2021-03-10":0,"2021-03-17":1,"2021-03-24":1,"2021-03-31":0}},{"name":"Eat breakfast","data":{"2021-02-10":3,"2021-02-17":2,"2021-02-24":1,"2021-03-03":0,"2021-03-10":2,"2021-03-17":2,"2021-03-24":3,"2021-03-31":0}},{"name":"Go to concert","data":{"2021-02-10":0,"2021-02-17":0,"2021-02-24":0,"2021-03-03":0,"2021-03-10":2,"2021-03-17":1,"2021-03-24":0,"2021-03-31":0}},{"name":"Wash face","data":{"2021-02-10":0,"2021-02-17":1,"2021-02-24":0,"2021-03-03":0,"2021-03-10":0,"2021-03-17":1,"2021-03-24":0,"2021-03-31":1}},{"name":"Workout","data":{"2021-02-10":3,"2021-02-17":3,"2021-02-24":3,"2021-03-03":1,"2021-03-10":4,"2021-03-17":3,"2021-03-24":2,"2021-03-31":3}}],"type":"LineChart","options":{"curve":true,"colors":["#1B9E77","#D95F02","#7570B3","#E7298A","#66A61E"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="references" class="section level2">
 <h2>References:</h2>

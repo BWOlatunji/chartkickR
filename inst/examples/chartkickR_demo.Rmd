@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(chartkickR)
 ```
 
 ## R Markdown
@@ -16,8 +18,7 @@ Let try using the chartkickR htmwidgets sample data to create a simple charts as
 
 ## Example 1 - Scatter Chart
 ```{r}
-library(tidyverse)
-library(chartkickR)
+
 line_tbl <- read_rds("sample_data/line_data.rds")
 
 chartkickR(data = line_tbl, x = dates,
@@ -52,7 +53,7 @@ chartkickR(data = discrete_line_ns_tbl, x = V1,
 
 pie_data <- read_rds("sample_data/pie_data.rds")
 
-chartkickR::chartkickR(data = pie_data,x = V1, y = V2,
+chartkickR::chartkickR(data = pie_data, x = V1, y = V2,
                        type = "PieChart",
                        colors = list("#4f86f7","#fc5a8d","yellow","red","#6f2da8"))
 
@@ -88,11 +89,12 @@ chartkickR::chartkickR(data = column_data, x = V1, y = V2,
 ## Example 8 - Bar Chart
 
 ``` {r}
-
+library(RColorBrewer)
 bar_data <- read_rds("sample_data/bar_data.rds")
 
-chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = "BarChart", legend = FALSE, colors = list("green","red"))
+chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = "BarChart", legend = FALSE, colors = list(brewer.pal(n = 7, name = "RdBu")))
 
+#"green","red","blue","yellow","orange","purple","skyblue"
 ```
 
 
@@ -128,48 +130,27 @@ chartkickR::chartkickR(data = scatter_data, x = V1, y = V2,
 
 ```
 
-## Example 11 - Bubble chart ------------------
+
+## Example 11 - Multiple Series Bar
 
 ```{r}
-bubble_data <- read_rds("sample_data/bubble_data.rds")
+bar_series_data <- read_rds("sample_data/multiseries_bar_data.rds")
+chartkickR(data=bar_series_data, x=id, y=values,
+           group=name, type = "BarChart",curve = TRUE)
+```
 
+## Example 12 - Multiple Series Line
 
-chartkickR::chartkickR(data = bubble_data, x = V1, y = V2,group = V3,
-                       legend = FALSE, type = "BubbleChart",colors = list("red"))
+```{r}
+line_series_data <- read_rds("sample_data/multiline_series_data.rds")
+chartkickR(data=line_series_data, x=dates, y=values,
+           group=task_name, type = "LineChart",curve = TRUE,
+           colors = list("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E"))
 
 ```
 
-## Example 12 - Large bubble chart
-
-```{r}
-
-bubble_lg_data <- read_rds("sample_data/bubble_large_data.rds")
-
-chartkickR::chartkickR(data = bubble_lg_data,
-                       legend = FALSE, type = "BubbleChart",colors = list("green"))
-
-```
-
-## Example 13 - Geo Chart
-
-```{r}
-
-geo_data <- read_rds("sample_data/geo_data.rds")
-
-chartkickR::chartkickR(data = geo_data, type = "GeoChart")
 
 
-```
-
-## Example 14 - Timeline - Google Charts
-
-```{r}
-timeline_data <- read_rds("sample_data/timeline_data.rds")
-
-
-chartkickR::chartkickR(data = timeline_data, type = "Timeline", colors = list("red", "green"))
-
-```
 
 ## References:
 - [Examples, Installation and Data formats](https://github.com/ankane/chartkickR.js)

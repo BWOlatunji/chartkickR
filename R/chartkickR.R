@@ -42,17 +42,6 @@ chartkickR <- function(data, x=NULL, y=NULL, group=NULL, type, ..., width = NULL
          call. = FALSE)
   }
 
-  # if(!is.null(group) & !is.null(x) & !is.null(y)){
-  # data <- dplyr::select(data,
-  #                       x = {{ x }} ,
-  #                       y = {{ y }},
-  #                       group = {{ group }})
-  # } else {
-  #   group <- NULL
-  #   x     <- NULL
-  #   y     <- NULL
-  # }
-
   data_items <- process_data(df = data,x, y, group)
 
   x = list(

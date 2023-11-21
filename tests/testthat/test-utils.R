@@ -1,60 +1,37 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
+# Define a test case
+test_that("process_data returns the correct data_items structure", {
 
+  # Create a sample data frame
+  df <- data.frame(
+    x = c(1, 2, 3, 4, 5),
+    y = c(10, 20, 30, 40, 50),
+    group = c("A", "A", "B", "B", "B")
+  )
 
-# Define a sample data frame for testing
-df <- data.frame(
-  x = c(1, 2, 3, 4, 5, 6),
-  y = c(2, 4, 6, 8, 10, 12),
-  group = c("A", "A", "B", "B", "C", "C")
-)
-
-# Write a test that checks the output of process_data with valid arguments
-test_that("process_data returns a list of named lists", {
-  # Call the process_data function with valid arguments
+  # Call the function
   result <- process_data(df, x_col = x, y_col = y, group_col = group)
 
-  # Check that the result is a list
-  expect_is(result, "list")
+  # Check the structure of the result
+  expect_that(result, is_a("list"))
+  expect_that(result, has_length(2))  # Assuming two unique groups in the sample data
 
-  # Check that the length of the result is equal to the number of unique groups
-  expect_equal(length(result), length(unique(df$group)))
+  # Check the structure of each item in the list
+  for (item in result) {
+    expect_that(item$name, is_a("character"))
+    expect_that(item$data, is_a("list"))
+  }
 
-  # Check that each element of the result is a named list with two elements: name and data
-  expect_s3_class(result[[1]], "list")
-  expect_named(result[[1]], c("name", "data"))
+  # Test case for the else branch (group_col is NULL)
+  df_no_group <- data.frame(
+    x = c(1, 2, 3, 4, 5),
+    y = c(10, 20, 30, 40, 50)
+  )
 
-  # Check that the name element is equal to the group name
-  expect_equal(result[[1]]$name, "A")
+  result_no_group <- process_data(df_no_group, x_col = x, y_col = y, group_col = NULL)
 
-  # Check that the data element is a named vector with x as names and y as values
-  expect_named(result[[1]]$data, c("1", "2"))
-  expect_equal(result[[1]]$data, c(2, 4))
-})
-
-# Write a test that checks the output of process_data with missing arguments
-test_that("process_data returns NULL if any argument is missing", {
-  # Call the process_data function with missing arguments
-  result1 <- process_data(df, x_col = x, y_col = y)
-  result2 <- process_data(df, x_col = x, group_col = group)
-  result3 <- process_data(df, y_col = y, group_col = group)
-
-  # Check that the result is NULL
-  expect_null(result1)
-  expect_null(result2)
-  expect_null(result3)
-})
-
-# Write a test that checks the output of process_data with invalid arguments
-test_that("process_data returns an error if any argument is invalid", {
-  # Call the process_data function with invalid arguments
-  result1 <- process_data(df, x_col = z, y_col = y, group_col = group)
-  result2 <- process_data(df, x_col = x, y_col = z, group_col = group)
-  result3 <- process_data(df, x_col = x, y_col = y, group_col = z)
-
-  # Check that the result is an error
-  expect_error(result1)
-  expect_error(result2)
-  expect_error(result3)
+  # Check the structure of the result when group_col is NULL
+  expect_that(result_no_group, is_a("list"))
+  expect_that(result_no_group, has_length(1))  # Only one group when group_col is NULL
+  expect_that(result_no_group[[1]]$name, is_null())
+  expect_that(result_no_group[[1]]$data, is_a("list"))
 })

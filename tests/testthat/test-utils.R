@@ -13,7 +13,7 @@ test_that("process_data returns the correct data_items structure", {
 
   # Check the structure of the result
   expect_that(result, is_a("list"))
-  expect_that(result, has_length(2))  # Assuming two unique groups in the sample data
+  expect_that(result, rlang::has_length(2))
 
   # Check the structure of each item in the list
   for (item in result) {
@@ -31,7 +31,7 @@ test_that("process_data returns the correct data_items structure", {
 
   # Check the structure of the result when group_col is NULL
   expect_that(result_no_group, is_a("list"))
-  expect_that(result_no_group, has_length(1))  # Only one group when group_col is NULL
+  expect_that(result_no_group, rlang::has_length(1))
   expect_that(result_no_group[[1]]$name, is_null())
   expect_that(result_no_group[[1]]$data, is_a("list"))
 })

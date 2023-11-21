@@ -11,7 +11,7 @@ library(tidyverse)
 library(chartkickR)
 ```
 
-## R Markdown
+## ChartkickR htmlwidget
 
 Let try using the chartkickR htmwidgets sample data to create a simple charts as shown below
 

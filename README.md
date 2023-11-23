@@ -62,10 +62,11 @@ The output can be downloaded and save as an image i.e. png file
 ```r
 # Pie chart             
                        
-palmerpenguins::penguins  |> count(species) |>
-  chartkickR::chartkickR(type = "PieChart",
-                       colors = list("#4f86f7", "#fc5a8d","yellow"),
-                       download = list(background= "#fff"))
+palmerpenguins::penguins  |> count(species) |> 
+  set_names(c("species", "count")) |> 
+  chartkickR::chartkickR(type = "PieChart", x=species, y= count,
+                         colors = list("#4f86f7", "#fc5a8d","yellow"),
+                         download = list(background= "#fff"))
 ```
 
 ## More examples 

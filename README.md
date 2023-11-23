@@ -34,23 +34,24 @@ library(tidyverse)
 
 p_data <- palmerpenguins::penguins |> select(bill_length_mm,bill_depth_mm)
 
+# Scatter plot
 chartkickR::chartkickR(data = p_data,x=bill_length_mm,y=bill_depth_mm,
                        type = "ScatterChart")
 
 # Pie chart             
-                       
-palmerpenguins::penguins  |> count(species) |>
-  chartkickR::chartkickR(type = "PieChart",
-                       colors = list("#4f86f7", "#fc5a8d","yellow"))
-                      
+
+palmerpenguins::penguins  |> count(species) |> 
+  set_names(c("species", "count")) |> 
+  chartkickR::chartkickR(type = "PieChart", x=species, y= count,
+                         colors = list("#4f86f7", "#fc5a8d","yellow"))
+
 # Multiple Series Bar
 bar_series_data <- penguins |> 
   group_by(year) |> 
   count(species)
-  
+
 chartkickR(data=bar_series_data, x=year, y=n,
            group=species, type = "BarChart",curve = TRUE)
-
 
 ```
 

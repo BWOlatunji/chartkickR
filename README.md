@@ -12,7 +12,7 @@ Installation
 
 **To install the latest development version from GitHub:**
 
-``` r
+``` {r}
 install.packages("remotes")
 remotes::install_github("BWOlatunji/chartkickR")
 ```

@@ -6,6 +6,7 @@
 #' @param type string representing the chart type name i.e. "LineChart"
 #' @param x,y List of name value pairs used to map variables on the chart.
 #' @param group string representing the column name used for grouping
+#' @param size bubble size when create bubble chart
 #' @param width chart's width
 #' @param height chart's height
 #' @param elementId html element id
@@ -16,7 +17,8 @@
 #' @name chartkickR
 #'
 #' @export
-chartkickR <- function(data, x=NULL, y=NULL, group=NULL, type, ..., width = NULL,
+chartkickR <- function(data, x=NULL, y=NULL, group=NULL, size=NULL,
+                       type, ..., width = NULL,
                        height = NULL,elementId = NULL) {
 
   assertthat::assert_that(type %in% c(
@@ -42,7 +44,7 @@ chartkickR <- function(data, x=NULL, y=NULL, group=NULL, type, ..., width = NULL
          call. = FALSE)
   }
 
-  data_items <- process_data(df = data,x, y, group)
+  data_items <- df_to_list(df = data, x, y, group, size)
 
   x = list(
     data = data_items,

@@ -15,8 +15,8 @@ library(chartkickR)
 
 Let try using the chartkickR htmwidgets sample data to create a simple charts as shown below
 
-
 ## Example 1 - Scatter Chart
+
 ```{r}
 
 line_tbl <- read_rds("sample_data/line_data.rds")
@@ -26,7 +26,7 @@ chartkickR(data = line_tbl, x = dates,
            
 ```
 
-## ## Example 2 - Discrete Line Chart 
+## \## Example 2 - Discrete Line Chart
 
 ```{r}
 discrete_line_tbl <- read_rds("sample_data/discrete_line_data.rds")
@@ -35,11 +35,9 @@ chartkickR(data = discrete_line_tbl, x = V1,
            y = V2, type = "LineChart")
 ```
 
-
-
 ## Example 3 - Discrete Line Chart Numeric String
 
-``` {r}
+```{r}
 discrete_line_ns_tbl <- read_rds("sample_data/discrete_line_numString_data.rds")
 
 chartkickR(data = discrete_line_ns_tbl, x = V1,
@@ -49,7 +47,7 @@ chartkickR(data = discrete_line_ns_tbl, x = V1,
 
 ## Example 4 - Pie Chart
 
-``` {r}
+```{r}
 
 pie_data <- read_rds("sample_data/pie_data.rds")
 
@@ -59,10 +57,9 @@ chartkickR::chartkickR(data = pie_data, x = V1, y = V2,
 
 ```
 
-
 ## Example 5 - Donut Chart
 
-``` {r}
+```{r}
 donut_data <- read_rds("sample_data/donut_data.rds")
 
 
@@ -72,10 +69,9 @@ chartkickR::chartkickR(data = donut_data, x = V1, y = V2,
 
 ```
 
-
 ## Example 6 - Column Chart
 
-``` {r}
+```{r}
 column_data <- read_rds("sample_data/column_data.rds")
 
 
@@ -85,10 +81,9 @@ chartkickR::chartkickR(data = column_data, x = V1, y = V2,
 
 ```
 
-
 ## Example 8 - Bar Chart
 
-``` {r}
+```{r}
 library(RColorBrewer)
 bar_data <- read_rds("sample_data/bar_data.rds")
 
@@ -97,10 +92,9 @@ chartkickR::chartkickR(data = bar_data, x = V1, y = V2,type = "BarChart", legend
 #"green","red","blue","yellow","orange","purple","skyblue"
 ```
 
-
 ## Example 8 - Area Chart
 
-``` {r}
+```{r}
 area_data <- read_rds("sample_data/area_data.rds")
 
 chartkickR::chartkickR(data = area_data, x = Date, y = Value,
@@ -108,10 +102,9 @@ chartkickR::chartkickR(data = area_data, x = Date, y = Value,
                      
 ```
 
-
 ## Example 9 - Discrete Area Chart
 
-``` {r}
+```{r}
 
 discrete_area_data <- read_rds("sample_data/discrete_area_data.rds")
 
@@ -119,10 +112,9 @@ chartkickR::chartkickR(data = discrete_area_data, x = country, y = values,
                        legend = FALSE,type = "AreaChart",curve = TRUE)
 ```
 
-
 ## Example 10 - Scatter Chart
 
-``` {r}
+```{r}
 scatter_data <- read_rds("sample_data/scatter_data.rds")
 
 chartkickR::chartkickR(data = scatter_data, x = V1, y = V2,
@@ -130,13 +122,13 @@ chartkickR::chartkickR(data = scatter_data, x = V1, y = V2,
 
 ```
 
-
 ## Example 11 - Multiple Series Bar
 
 ```{r}
-bar_series_data <- read_rds("sample_data/multiseries_bar_data.rds")
-chartkickR(data=bar_series_data, x=id, y=values,
-           group=name, type = "BarChart",curve = TRUE)
+bar_series_data <- read_rds("sample_data/multiseries_bar_data.rds") |> set_names(nm = c("g_col","x_col","y_col"))
+
+chartkickR::chartkickR(bar_series_data, x=x_col, y=y_col,
+           group=g_col, type = "BarChart")
 ```
 
 ## Example 12 - Multiple Series Line
@@ -149,9 +141,6 @@ chartkickR(data=line_series_data, x=dates, y=values,
 
 ```
 
-
-
-
 ## References:
-- [Examples, Installation and Data formats](https://github.com/ankane/chartkickR.js)
 
+-   [Examples, Installation and Data formats](https://github.com/ankane/chartkickR.js)

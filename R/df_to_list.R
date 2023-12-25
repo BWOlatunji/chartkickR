@@ -1,4 +1,4 @@
-#' Preprocess data frame into list
+#' Convert data frame into list
 #'
 #' @param df A data frame
 #' @param x_col string value of column name containing values on the x-axis
@@ -14,7 +14,7 @@
 
 utils::globalVariables(".")
 
-process_data <- function(df,x_col,y_col,group_col, size_col) {
+df_to_list <- function(df,x_col,y_col,group_col, size_col) {
 
   # if(!is.null(group_col)){
   #   df <- dplyr::select(df,
@@ -45,6 +45,4 @@ process_data <- function(df,x_col,y_col,group_col, size_col) {
   return(data_items)
 }
 
-#' @importFrom magrittr %>%
-#' @export
-magrittr::`%>%`
+

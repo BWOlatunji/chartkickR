@@ -9,6 +9,7 @@ chartkickR(
   x = NULL,
   y = NULL,
   group = NULL,
+  size = NULL,
   type,
   ...,
   width = NULL,
@@ -22,6 +23,8 @@ chartkickR(
 \item{x, y}{List of name value pairs used to map variables on the chart.}
 
 \item{group}{string representing the column name used for grouping}
+
+\item{size}{bubble size when create bubble chart}
 
 \item{type}{string representing the chart type name i.e. "LineChart"}
 

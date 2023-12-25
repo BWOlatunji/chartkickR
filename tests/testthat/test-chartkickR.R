@@ -22,4 +22,27 @@ test_that("chartkickR function tests", {
 })
 
 
-
+# test_that("chartkickR function tests", {
+#
+#   # Generate some sample data
+#   data <- data.frame(
+#     x = c(1, 2, 3, 4),
+#     y = c(10, 20, 15, 25)
+#   )
+#
+#   # Test the function with valid inputs
+#   chart_output <- chartkickR(data = data, x = "x", y = "y", type = "LineChart")
+#
+#   # Assert that the output is an HTML widget
+#   expect_is(chart_output, "htmlwidget")
+#
+# })
+#
+#
+# # Test case for invalid inputs
+# test_that("chartkickR handles invalid inputs", {
+#
+#   expect_error(chartkickR(data = NULL, type = "LineChart"), "chartkickR: 'data' must be a data.frame")
+#
+# })
+#

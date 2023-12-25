@@ -14,8 +14,7 @@ Imports:
     htmlwidgets,
     assertthat,
     dplyr,
-    tidyr,
-    stats
+    tidyr
 Suggests:
     knitr,
     testthat (>= 3.0.0)

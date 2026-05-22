@@ -129,3 +129,32 @@ make_bubble_data <- function(data, x_col, y_col, size_col, group_col = NULL) {
     data[[size_col]]
   ))
 }
+
+#' Convert an R data frame to Chartkick timeline-compatible data
+#'
+#' @keywords internal
+chartkick_timeline_data <- function(data, task, start, end) {
+  if (!is.data.frame(data)) {
+    stop("`data` must be a data frame.", call. = FALSE)
+  }
+
+  task_col <- resolve_col(task, data, "task")
+  start_col <- resolve_col(start, data, "start")
+  end_col <- resolve_col(end, data, "end")
+
+  rows <- stats::complete.cases(data[, c(task_col, start_col, end_col), drop = FALSE])
+  data <- data[rows, , drop = FALSE]
+
+  unname(Map(
+    function(task, start, end) {
+      list(
+        as.character(unname(task)),
+        format(as.Date(unname(start)), "%Y-%m-%d"),
+        format(as.Date(unname(end)), "%Y-%m-%d")
+      )
+    },
+    data[[task_col]],
+    data[[start_col]],
+    data[[end_col]]
+  ))
+}

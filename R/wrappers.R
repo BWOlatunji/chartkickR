@@ -72,8 +72,37 @@ geo_chart <- function(data, x, y, ..., width = NULL, height = NULL, elementId = 
 
 #' Create a timeline chart
 #'
-#' @inheritParams chartkickR
+#' @param data A data frame.
+#' @param task Column containing task or event names.
+#' @param start Column containing start dates.
+#' @param end Column containing end dates.
+#' @param ... Chartkick options passed to JavaScript.
+#' @param width,height Widget width and height.
+#' @param elementId Optional htmlwidget element ID.
+#'
+#' @return An htmlwidget object.
+#'
 #' @export
-timeline_chart <- function(data, x, y, group = NULL, ..., width = NULL, height = NULL, elementId = NULL) {
-  chartkickR(data, {{ x }}, {{ y }}, group = {{ group }}, type = "Timeline", ..., width = width, height = height, elementId = elementId)
+timeline_chart <- function(data, task, start, end, ..., width = NULL, height = NULL, elementId = NULL) {
+  widget_data <- chartkick_timeline_data(
+    data = data,
+    task = rlang::enquo(task),
+    start = rlang::enquo(start),
+    end = rlang::enquo(end)
+  )
+
+  payload <- list(
+    data = widget_data,
+    type = "Timeline",
+    options = list(...)
+  )
+
+  htmlwidgets::createWidget(
+    name = "chartkickR",
+    x = payload,
+    width = width,
+    height = height,
+    package = "chartkickR",
+    elementId = elementId
+  )
 }

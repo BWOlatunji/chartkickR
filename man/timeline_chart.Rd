@@ -6,9 +6,9 @@
 \usage{
 timeline_chart(
   data,
-  x,
-  y,
-  group = NULL,
+  task,
+  start,
+  end,
   ...,
   width = NULL,
   height = NULL,
@@ -18,17 +18,20 @@ timeline_chart(
 \arguments{
 \item{data}{A data frame.}
 
-\item{x}{Column used for the x-axis, category, or label.}
+\item{task}{Column containing task or event names.}
 
-\item{y}{Column used for the y-axis or value.}
+\item{start}{Column containing start dates.}
 
-\item{group}{Optional column used to create multiple series.}
+\item{end}{Column containing end dates.}
 
 \item{...}{Chartkick options passed to JavaScript.}
 
 \item{width, height}{Widget width and height.}
 
 \item{elementId}{Optional htmlwidget element ID.}
+}
+\value{
+An htmlwidget object.
 }
 \description{
 Create a timeline chart

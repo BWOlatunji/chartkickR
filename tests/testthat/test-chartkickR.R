@@ -149,3 +149,24 @@ test_that("wrapper functions set chart types correctly", {
   expect_equal(donut$x$type, "PieChart")
   expect_true(donut$x$options$donut)
 })
+
+test_that("timeline_chart returns task-start-end triples", {
+  data <- data.frame(
+    task = c("Kickoff", "Build", "Launch"),
+    start_date = as.Date(c("2026-01-01", "2026-01-08", "2026-01-20")),
+    end_date = as.Date(c("2026-01-07", "2026-01-19", "2026-01-25"))
+  )
+
+  chart <- timeline_chart(data, task, start_date, end_date)
+
+  expect_s3_class(chart, "htmlwidget")
+  expect_identical(chart$x$type, "Timeline")
+  expect_identical(
+    chart$x$data,
+    list(
+      list("Kickoff", "2026-01-01", "2026-01-07"),
+      list("Build", "2026-01-08", "2026-01-19"),
+      list("Launch", "2026-01-20", "2026-01-25")
+    )
+  )
+})

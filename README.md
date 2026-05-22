@@ -477,6 +477,18 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
+
+## Open-source community context
+
+`chartkickR` is also part of my broader contribution to the R and open-source ecosystem. I participated in the [rOpenSci Champions Program](https://ropensci.org/champions/) in 2022–2023 as one of the first Champions. The program supports emerging open-source leaders through cohort-based training, mentorship, project development, and contribution pathways in the R and research software community.
+
+That experience continues to influence the development goals for `chartkickR`: clear documentation, approachable examples, inclusive learning materials, and a package design that helps more R users create interactive visualizations with minimal friction.
+
+## Mentorship Acknowledgement
+
+I am grateful to my mentor, [Christina Maimone](https://www.linkedin.com/in/christina-maimone-302a3a40/), for her guidance and support during my open-source learning journey through the rOpenSci Champions Program. Her mentorship helped shape my approach to R package development, documentation, and community-centered software practices.
+
+
 ## Development and testing
 
 Run the package documentation, tests, and checks:

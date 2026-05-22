@@ -25,7 +25,6 @@ bar_chart(simple_data, x, y)
 area_chart(simple_data, x, y)
 
 bubble_chart(bubble_data, x, y, size = size)
-geo_chart(simple_data, x, y)
 
 line_chart(grouped_data, month, value, group = product)
 column_chart(grouped_data, month, value, group = product)

@@ -11,20 +11,17 @@ chartkickROutput(outputId, width = "100\%", height = "400px")
 renderChartkickR(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
-\item{outputId}{output variable to read from}
+\item{outputId}{Output variable to read from.}
 
-\item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
-\code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended.}
+\item{width, height}{Valid CSS units.}
 
-\item{expr}{An expression that generates a chartkickR}
+\item{expr}{Expression that generates a chartkickR widget.}
 
-\item{env}{The environment in which to evaluate \code{expr}.}
+\item{env}{Environment in which to evaluate \code{expr}.}
 
-\item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
-is useful if you want to save an expression in a variable.}
+\item{quoted}{Whether \code{expr} is quoted.}
 }
 \description{
-Output and render functions for using chartkickR within Shiny
-applications and interactive Rmd documents.
+Output and render functions for using chartkickR within Shiny applications
+and interactive R Markdown documents.
 }

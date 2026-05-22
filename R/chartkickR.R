@@ -1,92 +1,126 @@
-#' Chartkick.js chart in R powered by htmlwidgets
+#' Create a Chartkick.js chart in R
 #'
-#' chartkickR is an R package to draw charts based on Chartkick.js JavaScript Library
+#' `chartkickR()` creates interactive charts powered by Chartkick.js and
+#' htmlwidgets. It accepts an R data frame and maps selected columns to
+#' Chartkick-compatible chart data.
 #'
-#' @param data data.frame containing data series
-#' @param type string representing the chart type name i.e. "LineChart"
-#' @param x,y List of name value pairs used to map variables on the chart.
-#' @param group string representing the column name used for grouping
-#' @param size bubble size when create bubble chart
-#' @param width chart's width
-#' @param height chart's height
-#' @param elementId html element id
-#' @param ... configurations arguments for the chart
+#' @param data A data frame.
+#' @param x Column used for the x-axis, category, or label.
+#' @param y Column used for the y-axis or value.
+#' @param group Optional column used to create multiple series.
+#' @param size Optional column used as bubble size. Required for BubbleChart.
+#' @param type Chart type. One of `"LineChart"`, `"PieChart"`, `"DonutChart"`,
+#'   `"ColumnChart"`, `"BarChart"`, `"AreaChart"`, `"ScatterChart"`,
+#'   `"BubbleChart"`, `"GeoChart"`, or `"Timeline"`.
+#' @param ... Chartkick options passed to JavaScript.
+#' @param width,height Widget width and height.
+#' @param elementId Optional htmlwidget element ID.
 #'
-#' @import htmlwidgets assertthat
-#'
-#' @name chartkickR
+#' @return An htmlwidget object.
 #'
 #' @export
-chartkickR <- function(data, x=NULL, y=NULL, group=NULL, size=NULL,
-                       type, ..., width = NULL,
-                       height = NULL,elementId = NULL) {
-
-  assertthat::assert_that(type %in% c(
+chartkickR <- function(
+    data,
+    x,
+    y,
+    group = NULL,
+    size = NULL,
+    type,
+    ...,
+    width = NULL,
+    height = NULL,
+    elementId = NULL
+) {
+  valid_types <- c(
     "LineChart",
-    "DonutChart",
     "PieChart",
+    "DonutChart",
     "ColumnChart",
-    "BubbleChart",
     "BarChart",
     "AreaChart",
     "ScatterChart",
+    "BubbleChart",
     "GeoChart",
     "Timeline"
-  ))
-
-  options <- list(
-    ...
   )
 
-  # process data
-  if (!is.data.frame(data)) {
-    stop("chartkickR: 'data' must be a data.frame",
-         call. = FALSE)
+  if (missing(type) || !type %in% valid_types) {
+    stop(
+      "`type` must be one of: ",
+      paste(valid_types, collapse = ", "),
+      call. = FALSE
+    )
   }
 
-  data_items <- df_to_list(df = data, x, y, group, size)
+  options <- list(...)
 
-  x = list(
-    data = data_items,
+  if (identical(type, "DonutChart")) {
+    type <- "PieChart"
+    options$donut <- TRUE
+  }
+
+  widget_data <- chartkick_data(
+    data = data,
+    x = rlang::enquo(x),
+    y = rlang::enquo(y),
+    group = rlang::enquo(group),
+    size = rlang::enquo(size),
+    type = type
+  )
+
+  payload <- list(
+    data = widget_data,
     type = type,
     options = options
   )
 
-  # create widget
   htmlwidgets::createWidget(
-    name = 'chartkickR',
-    x,
+    name = "chartkickR",
+    x = payload,
     width = width,
     height = height,
-    package = 'chartkickR',
+    package = "chartkickR",
     elementId = elementId
   )
 }
 
+
 #' Shiny bindings for chartkickR
 #'
-#' Output and render functions for using chartkickR within Shiny
-#' applications and interactive Rmd documents.
+#' Output and render functions for using chartkickR within Shiny applications
+#' and interactive R Markdown documents.
 #'
-#' @param outputId output variable to read from
-#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a chartkickR
-#' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
-#'   is useful if you want to save an expression in a variable.
+#' @param outputId Output variable to read from.
+#' @param width,height Valid CSS units.
+#' @param expr Expression that generates a chartkickR widget.
+#' @param env Environment in which to evaluate `expr`.
+#' @param quoted Whether `expr` is quoted.
 #'
 #' @name chartkickR-shiny
 #'
 #' @export
-chartkickROutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'chartkickR', width, height, package = 'chartkickR')
+chartkickROutput <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(
+    outputId,
+    "chartkickR",
+    width,
+    height,
+    package = "chartkickR"
+  )
 }
+
 
 #' @rdname chartkickR-shiny
 #' @export
 renderChartkickR <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, chartkickROutput, env, quoted = TRUE)
+  if (!quoted) {
+    expr <- substitute(expr)
+  }
+
+  htmlwidgets::shinyRenderWidget(
+    expr,
+    chartkickROutput,
+    env,
+    quoted = TRUE
+  )
 }

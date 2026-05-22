@@ -1,24 +1,29 @@
 Package: chartkickR
-Title: What the Package Does (One Line, Title Case)
+Title: Create Interactive Chartkick.js Charts in R
 Version: 0.0.0.9000
 Authors@R: 
-    person("Bilikisu", "Olatunji", , "bilqiiswunmi@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0009-0005-9144-6423"))
-Description: This is an implementation of the Chartkick.js library in R using the htmlwidgets framework.
+    person(
+        given = "Bilikisu",
+        family = "Olatunji",
+        email = "bilqiiswunmi@gmail.com",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0009-0005-9144-6423")
+    )
+Description: Provides an R interface to the Chartkick.js JavaScript charting 
+    library using the htmlwidgets framework. The package allows users to create 
+    interactive line, bar, column, area, pie, donut, scatter, bubble, geo, and 
+    timeline charts from R data frames with minimal code.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Language: es
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
 Imports:
     htmlwidgets,
-    assertthat,
-    dplyr,
-    tidyr
+    rlang
 Suggests:
     knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/BWOlatunji/chartkickR
 BugReports: https://github.com/BWOlatunji/chartkickR/issues
-
+Config/roxygen2/version: 8.0.0

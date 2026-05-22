@@ -2,12 +2,12 @@
 % Please edit documentation in R/chartkickR.R
 \name{chartkickR}
 \alias{chartkickR}
-\title{Chartkick.js chart in R powered by htmlwidgets}
+\title{Create a Chartkick.js chart in R}
 \usage{
 chartkickR(
   data,
-  x = NULL,
-  y = NULL,
+  x,
+  y,
   group = NULL,
   size = NULL,
   type,
@@ -18,24 +18,31 @@ chartkickR(
 )
 }
 \arguments{
-\item{data}{data.frame containing data series}
+\item{data}{A data frame.}
 
-\item{x, y}{List of name value pairs used to map variables on the chart.}
+\item{x}{Column used for the x-axis, category, or label.}
 
-\item{group}{string representing the column name used for grouping}
+\item{y}{Column used for the y-axis or value.}
 
-\item{size}{bubble size when create bubble chart}
+\item{group}{Optional column used to create multiple series.}
 
-\item{type}{string representing the chart type name i.e. "LineChart"}
+\item{size}{Optional column used as bubble size. Required for BubbleChart.}
 
-\item{...}{configurations arguments for the chart}
+\item{type}{Chart type. One of \code{"LineChart"}, \code{"PieChart"}, \code{"DonutChart"},
+\code{"ColumnChart"}, \code{"BarChart"}, \code{"AreaChart"}, \code{"ScatterChart"},
+\code{"BubbleChart"}, \code{"GeoChart"}, or \code{"Timeline"}.}
 
-\item{width}{chart's width}
+\item{...}{Chartkick options passed to JavaScript.}
 
-\item{height}{chart's height}
+\item{width, height}{Widget width and height.}
 
-\item{elementId}{html element id}
+\item{elementId}{Optional htmlwidget element ID.}
+}
+\value{
+An htmlwidget object.
 }
 \description{
-chartkickR is an R package to draw charts based on Chartkick.js JavaScript Library
+\code{chartkickR()} creates interactive charts powered by Chartkick.js and
+htmlwidgets. It accepts an R data frame and maps selected columns to
+Chartkick-compatible chart data.
 }
